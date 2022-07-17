@@ -1,49 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:tapshyrma_1/constants/colors/app_colors.dart';
 import 'package:tapshyrma_1/pages/second_page.dart';
 import 'package:tapshyrma_1/widgets/custom_button.dart';
 
+import '../constants/texts/app_texts.dart';
+import '../widgets/main_app_bar_widget.dart';
 import '../widgets/main_button_widget.dart';
 
-class FirstPage extends StatefulWidget {
-  const FirstPage({Key? key, required this.title}) : super(key: key);
+// class FirstPage extends StatefulWidget {
+//   const FirstPage({Key? key, required this.title}) : super(key: key);
 
-  final String title;
+//   final String title;
+
+//   @override
+//   State<FirstPage> createState() => _FirstPageState();
+// }
+
+// class _FirstPageState extends State<FirstPage> {
+//   int _number = 0;
+ class FirstPage extends StatefulWidget {
+  const FirstPage({Key ?key}) : super(key: key);
 
   @override
-  State<FirstPage> createState() => _FirstPageState();
+  _FirstPageState createState() => _FirstPageState();
 }
 
 class _FirstPageState extends State<FirstPage> {
-  int _number = 0;
-  void _increment() {
-    _number++;
-    setState(() {});
-  }
+  int _number = 5;
 
-  void _decrement() {
-    _number--;
-    setState(() {});
-  }
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0.0,
-        centerTitle: true,
-        title: const Text(
-          'Тапшырма 01',
-          style: TextStyle(color: Colors.black),
-        ),
-        backgroundColor: Colors.white,
+      appBar:  MainAppBarWidget(
+        appBarText: AppTexts.homeWork1 ,
+        
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           MainButtonWidget(
             number: _number,
-            color: const Color(0xffBDBDBD),
+            color:AppColors.main,
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(
@@ -61,17 +60,29 @@ class _FirstPageState extends State<FirstPage> {
             children: [
               CustomButton(
                 icon: Icons.remove,
-                onPressed: () => _decrement(),
+                onPressed: () => buttonChange(false),
               ),
               const SizedBox(width: 30.0),
               CustomButton(
                 icon: Icons.add,
-                onPressed: () => _increment(),
+                onPressed: () => buttonChange(true),
               ),
             ],
           ),
         ],
       ),
     );
+  }
+
+  void buttonChange(bool isAdd) {
+    if (isAdd == true) {
+      setState(() {
+        _number++;
+      });
+    } else {
+      setState(() {
+        _number--;
+      });
+    }
   }
 }

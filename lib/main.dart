@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'pages/second_page.dart';
 import 'pages/first_page.dart';
 
 void main() {
@@ -14,7 +13,7 @@ class CounterApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:  FirstPage(title: 'Flutter Demo Home Page'),
+      home:  FirstPage(),
     );
   }
 }

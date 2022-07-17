@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-
-import '../pages/second_page.dart';
+import 'package:tapshyrma_1/constants/text_styles/app_text_styles.dart';
 
 class MainButtonWidget extends StatelessWidget {
   final Color color;
    final int number;
    final VoidCallback onPressed;
   const MainButtonWidget({
-    this.color,
-    this.number,
-    this.onPressed,
+    required this.color,
+    required this.number,
+    required this.onPressed,
     
   });
 
@@ -31,7 +30,7 @@ class MainButtonWidget extends StatelessWidget {
         height: 48.0,
         child: Text(
           'Сан: $number',
-          style: const TextStyle(fontWeight: FontWeight.w700),
+          style: AppTextStyles.mainButton ,
         ),
       ),
     );

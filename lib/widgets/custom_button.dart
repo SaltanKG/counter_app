@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tapshyrma_1/constants/colors/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
   final IconData icon;
   final void Function() onPressed;
-  const CustomButton({this.icon, this.onPressed,
+  const CustomButton({required this.icon, required this.onPressed,
   });
 
   @override
@@ -12,13 +13,13 @@ class CustomButton extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         decoration: BoxDecoration(
-            color: const Color(0XFF005EA6),
+            color: AppColors.secondory,
             borderRadius: BorderRadius.circular(10.0)),
         width: 69.0,
         height: 44.0,
         child:  Icon(
           icon,
-          color: Colors.white,
+          color: AppColors.white,
         ),
       ),
     );
